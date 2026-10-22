@@ -21,8 +21,8 @@ Verified locally on October 21, 2026, with Python 3.12.14 on Windows.
 | API keys / provider fees | No API key or provider fee required in default local mode; optional Nebius mode remains available |
 | Docker build/run | Pending: Docker CLI present, but Docker engine unavailable |
 | Hosted cloud service | Not provisioned |
-| Public GitHub repository | Created and source upload in progress: https://github.com/stevensherhouse/wine-quality-assistant |
-| Remote CI | Workflow verification in progress |
+| Public GitHub repository | Published and verified: https://github.com/stevensherhouse/wine-quality-assistant |
+| Remote CI | Passed: [fresh-clone verification](https://github.com/stevensherhouse/wine-quality-assistant/actions/runs/39703128389); install, training, pytest, smoke demo, and report upload succeeded |
 | Completed presentation video | Two-minute captioned walkthrough from actual app captures in docs/demo/wine-quality-demo.mp4; complete prediction, parsed inputs, missing inputs, follow-up, and scope handling |
 
 The regular provider unit tests use fixed API responses to validate the adapter and orchestration. A separate real-model check, `python -m src.check_live`, passed against the downloaded local Qwen model. Its actual parsed measurements, model predictions, generated explanations, and edge-case outputs are in `reports/live_check.json`. No mock LLM was used for that check. The small live benchmark demonstrates these cases; it does not establish broad extraction reliability. The separate offline transcript remains clearly labeled recorded extraction.
@@ -30,3 +30,5 @@ The regular provider unit tests use fixed API responses to validate the adapter 
 Local model binaries, raw data, MLflow database, and MLflow artifact files are intentionally excluded from Git. The source archive excludes those files as well; a fresh clone or unpacked source archive must train first. The original working folder retains all five completed experiments and the saved model for local inspection.
 
 The test report records the original verification environment. Re-running training may produce a different batch/run ID and slightly different floating-point values on other platforms.
+
+Publication audit: every published file was checked against its local bytes using Git blob hashes. The 120-second H.264 demo passed a full decode check. API settings, raw datasets, regression binaries, downloaded LLM weights/runtime, and local MLflow storage are excluded from the public repository.
