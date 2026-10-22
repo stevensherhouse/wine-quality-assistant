@@ -1,0 +1,47 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-8.3.5, pluggy-1.7.0 -- C:\Users\steve\Documents\Codex\2026-10-21\files-pasted-by-the-user-project\work\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\steve\Documents\Codex\2026-10-21\files-pasted-by-the-user-project\outputs\wine-quality-assistant
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 26 items
+
+tests/test_app.py::test_app_setup_message_without_credentials PASSED     [  3%]
+tests/test_app.py::test_app_complete_and_incomplete_queries PASSED       [  7%]
+tests/test_interface.py::test_parser_extracts_provider_values PASSED     [ 11%]
+tests/test_interface.py::test_null_is_missing_but_zero_is_preserved PASSED [ 15%]
+tests/test_interface.py::test_malformed_provider_response[not json] PASSED [ 19%]
+tests/test_interface.py::test_malformed_provider_response[[]] PASSED     [ 23%]
+tests/test_interface.py::test_malformed_provider_response[{"features": []}] PASSED [ 26%]
+tests/test_interface.py::test_malformed_provider_response[{"features":{"invented":1},"ambiguous":[],"in_scope":true}] PASSED [ 30%]
+tests/test_interface.py::test_incomplete_input_never_invokes_model PASSED [ 34%]
+tests/test_interface.py::test_out_of_scope_never_invokes_model PASSED    [ 38%]
+tests/test_interface.py::test_ambiguous_acidity_never_invokes_model PASSED [ 42%]
+tests/test_interface.py::test_out_of_range_and_invalid_values PASSED     [ 46%]
+tests/test_interface.py::test_multiturn_invokes_actual_model PASSED      [ 50%]
+tests/test_interface.py::test_explanation_outage_preserves_real_prediction PASSED [ 53%]
+tests/test_model.py::test_prediction_type_shape PASSED                   [ 57%]
+tests/test_model.py::test_held_out_performance_threshold PASSED          [ 61%]
+tests/test_preprocess.py::test_missing_values_imputed PASSED             [ 65%]
+tests/test_preprocess.py::test_categoricals_encoded PASSED               [ 69%]
+tests/test_preprocess.py::test_numeric_scaling PASSED                    [ 73%]
+tests/test_preprocess.py::test_original_frame_is_unchanged PASSED        [ 76%]
+tests/test_preprocess.py::test_transform_does_not_refit_imputer PASSED   [ 80%]
+tests/test_provider_config.py::test_local_provider_needs_no_secret PASSED [ 84%]
+tests/test_provider_config.py::test_local_provider_rejects_external_host PASSED [ 88%]
+tests/test_provider_config.py::test_nebius_requires_env_secret PASSED    [ 92%]
+tests/test_provider_config.py::test_nebius_reads_secret_from_environment PASSED [ 96%]
+tests/test_provider_config.py::test_unknown_provider_is_rejected PASSED  [100%]
+
+============================== warnings summary ===============================
+..\..\work\.venv\Lib\site-packages\mlflow\utils\pydantic_utils.py:33
+  C:\Users\steve\Documents\Codex\2026-10-21\files-pasted-by-the-user-project\work\.venv\Lib\site-packages\mlflow\utils\pydantic_utils.py:33: PydanticDeprecatedSince212: Using `@model_validator` with mode='after' on a classmethod is deprecated. Instead, use an instance method. See the documentation at https://pydantic.dev/docs/validation/2.14/concepts/validators/#model-after-validator. Deprecated in Pydantic V2.12 to be removed in V3.0.
+    return pydantic_model_validator(mode=mode)(func)
+
+..\..\work\.venv\Lib\site-packages\mlflow\gateway\config.py:454
+  C:\Users\steve\Documents\Codex\2026-10-21\files-pasted-by-the-user-project\work\.venv\Lib\site-packages\mlflow\gateway\config.py:454: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/
+    class Route(ConfigModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\steve\Documents\Codex\2026-10-21\files-pasted-by-the-user-project\outputs\wine-quality-assistant\reports\tests.xml -
+======================= 26 passed, 2 warnings in 3.83s ========================

@@ -1,0 +1,7 @@
+{
+  "mode": "live_local_streamlit",
+  "complete_response": "Estimated quality: 5.00/10\n\nThe wine model, named extra_trees, predicts a sensory quality score of 5.0 on a 0-10 scale for this wine sample. This score is an estimate of its quality, not a guarantee. The model's accuracy, as measured by a held-out Mean Absolute Error (MAE) of 0.534, indicates an average error of about half a point in the predicted score. Note that the training data is limited to Portuguese Vinho Verde, which may affect the model's performance on other types of wines, and taste can vary.",
+  "incomplete_response": "Please provide: fixed acidity (g/L), volatile acidity (g/L), citric acid (g/L), residual sugar (g/L), chlorides (g/L), free sulfur dioxide (mg/L), total sulfur dioxide (mg/L), density (g/cm\u00b3), pH (pH units), sulphates (g/L).",
+  "result": "passed",
+  "mock_provider_used": false
+}

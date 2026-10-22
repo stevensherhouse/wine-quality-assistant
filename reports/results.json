@@ -1,0 +1,77 @@
+{
+  "batch_id": "b097bbb78e8444638428609c1f84399b",
+  "run_id": "1755e5fd9ef3497f9562c59e492afff1",
+  "config_name": "extra_trees",
+  "data": {
+    "source": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+    "sha256": {
+      "winequality-red.csv": "4a402cf041b025d4566d954c3b9ba8635a3a8a01e039005d97d6a710278cf05e",
+      "winequality-white.csv": "76c3f809815c17c07212622f776311faeb31e87610d52c26d87d6e361b169836"
+    },
+    "rows_after_grouping": 5320
+  },
+  "selection_rule": "Lowest validation RMSE; test metrics never used for ranking",
+  "split_rows": {
+    "train": 3192,
+    "validation": 1064,
+    "test": 1064
+  },
+  "test_metrics": {
+    "mae": 0.5343787597584184,
+    "mse": 0.4982223641024504,
+    "rmse": 0.7058486835735053,
+    "r2": 0.35777116743817206
+  },
+  "bounds": {
+    "fixed_acidity": [
+      3.8,
+      15.9
+    ],
+    "volatile_acidity": [
+      0.08,
+      1.58
+    ],
+    "citric_acid": [
+      0.0,
+      1.66
+    ],
+    "residual_sugar": [
+      0.6,
+      65.8
+    ],
+    "chlorides": [
+      0.009,
+      0.611
+    ],
+    "free_sulfur_dioxide": [
+      1.0,
+      289.0
+    ],
+    "total_sulfur_dioxide": [
+      6.0,
+      440.0
+    ],
+    "density": [
+      0.98713,
+      1.03898
+    ],
+    "pH": [
+      2.72,
+      4.01
+    ],
+    "sulphates": [
+      0.25,
+      1.36
+    ],
+    "alcohol": [
+      8.0,
+      14.9
+    ]
+  },
+  "baseline_test_metrics": {
+    "mae": 0.6951306838524884,
+    "mse": 0.7758533237856546,
+    "rmse": 0.8808253650898427,
+    "r2": -0.00010639881997254186
+  }
+}

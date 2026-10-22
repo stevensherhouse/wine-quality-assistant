@@ -1,0 +1,41 @@
+OFFLINE SMOKE DEMO: recorded extraction; actual trained ML model; no live LLM
+
+USER: Please rate this red wine: fixed acidity 7.4 g/L, volatile acidity 0.70 g/L, citric acid 0 g/L, residual sugar 1.9 g/L, chlorides 0.076 g/L, free sulfur dioxide 11 mg/L, total sulfur dioxide 34 mg/L, density 0.9978 g/cm3, pH 3.51, sulphates 0.56 g/L, alcohol 9.4%.
+{
+  "status": "prediction",
+  "features": {
+    "fixed_acidity": 7.4,
+    "volatile_acidity": 0.7,
+    "citric_acid": 0,
+    "residual_sugar": 1.9,
+    "chlorides": 0.076,
+    "free_sulfur_dioxide": 11,
+    "total_sulfur_dioxide": 34,
+    "density": 0.9978,
+    "pH": 3.51,
+    "sulphates": 0.56,
+    "alcohol": 9.4,
+    "wine_type": "red"
+  },
+  "score": 5.000133333333333,
+  "message": "Estimated quality: 5.0/10. Held-out MAE: 0.534 points; not a confidence interval. Portuguese Vinho Verde training data; subjective taste and other wine styles may differ.",
+  "warning": null,
+  "model_run_id": "1755e5fd9ef3497f9562c59e492afff1"
+}
+
+USER: I have a red wine with 11% alcohol. Rate it.
+{
+  "status": "clarify",
+  "message": "Please provide: fixed acidity (g/L), volatile acidity (g/L), citric acid (g/L), residual sugar (g/L), chlorides (g/L), free sulfur dioxide (mg/L), total sulfur dioxide (mg/L), density (g/cm\u00b3), pH (pH units), sulphates (g/L).",
+  "features": {
+    "wine_type": "red",
+    "alcohol": 11
+  }
+}
+
+USER: What is the price of Bitcoin?
+{
+  "status": "out_of_scope",
+  "features": {},
+  "message": "I estimate red or white wine quality from laboratory measurements. Please provide a wine analysis."
+}
