@@ -1,5 +1,9 @@
 # Wine Quality Assistant
 
+[![Test and train](https://github.com/stevensherhouse/wine-quality-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/stevensherhouse/wine-quality-assistant/actions/workflows/tests.yml)
+
+[Watch the two-minute demo](docs/demo/wine-quality-demo.mp4) · [Demo timeline](docs/demo/README.md)
+
 A focused machine-learning application for students and wine analysts who have laboratory measurements and want an estimate of a wine's sensory quality. A Streamlit conversation uses a local Qwen2.5-7B language model to extract measurements, invokes a trained scikit-learn regression pipeline, and asks Qwen to explain the estimate. There are no API fees or API keys in the default local mode. Nebius remains an optional provider.
 
 **Verified locally:** five completed MLflow experiments, real model inference, regression metrics, interface tests, and Streamlit interactions. Live local-LLM verification is documented in `reports/verification.md`. **Public submission repository:** [stevensherhouse/wine-quality-assistant](https://github.com/stevensherhouse/wine-quality-assistant). A completed two-minute demo is included below. The Dockerfile is included; a container build and cloud deployment have not been verified here. See `reports/verification.md` for the precise handoff status.
@@ -177,7 +181,7 @@ python -m src.demo --live
 
 These commands call the real configured language model. Default local mode has no API fees; optional Nebius mode may incur API charges. `check_live` verifies complete extraction, actual prediction and explanation, incomplete input, ambiguous acidity, and scope rejection. It writes a success report only after assertions pass. The three-minute presentation/recording script is in [docs/DEMO.md](docs/DEMO.md). **Completed demo:** [two-minute captioned video](docs/demo/wine-quality-demo.mp4), with [timeline and presentation details](docs/demo/README.md). The video uses actual app captures, with processing waits shortened.
 
-The GitHub Actions workflow trains and tests on a fresh Ubuntu/Python 3.12 runner. Its remote execution has not been observed until this repository is published and the workflow runs.
+The GitHub Actions workflow trains and tests on a fresh Ubuntu/Python 3.12 runner. The [first complete remote verification passed](https://github.com/stevensherhouse/wine-quality-assistant/actions/runs/39703128389): dependency installation, five-model training, pytest, the offline smoke demo, and report upload all succeeded. The public check record is saved in `reports/ci-verification.json`. Documentation-only changes do not retrain models; code/configuration changes do.
 
 ## Docker and deployment
 
@@ -217,7 +221,7 @@ The central interface challenge is translating flexible language into a strict f
 
 With more time, add repeated group-aware cross-validation, uncertainty calibration, per-wine-type diagnostics, a larger live extraction benchmark with adversarial/unit-conversion cases, better detection of unusual feature combinations, drift monitoring, and a versioned model-release process. The current strict all-feature requirement trades convenience for avoiding silently assumed measurements. A guided form could improve usability while preserving that boundary.
 
-Before submitting, personalize this reflection with what you observed while running the app and reviewing experiments, and include the actual live demo outcome. Do not describe pending container, cloud, GitHub, or presentation checks as completed.
+The real local LLM check caught two extraction omissions: wine type and an explicitly stated zero. Requiring all feature slots in a constrained JSON schema, using null only for missing values, and adding a zero-preservation regression test corrected those cases. The completed demo also shows missing-input clarification and a follow-up that retains the previous alcohol value. Containers and cloud hosting remain unverified; this project demonstrates local execution.
 
 ## Submission
 
