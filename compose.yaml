@@ -1,0 +1,18 @@
+# Optional local, CPU-based container deployment; download the GGUF with setup_local first.
+services:
+  llm:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    command: ["--model", "/models/Qwen2.5-7B-Instruct-Q4_K_M.gguf", "--host", "127.0.0.1", "--port", "8080", "--ctx-size", "4096", "--n-gpu-layers", "0", "--alias", "wine-local"]
+    volumes:
+      - ./local_llm:/models:ro
+    ports:
+      - "127.0.0.1:8501:8501"
+  app:
+    build: .
+    network_mode: "service:llm"
+    depends_on:
+      - llm
+    environment:
+      LLM_PROVIDER: local
+      LLM_BASE_URL: http://127.0.0.1:8080/v1
+      LLM_MODEL: wine-local

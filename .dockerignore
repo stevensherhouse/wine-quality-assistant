@@ -1,0 +1,12 @@
+.git
+.env
+.venv
+__pycache__
+.pytest_cache
+mlruns
+*.db*
+data
+models
+.streamlit/secrets.toml
+local_runtime
+local_llm
