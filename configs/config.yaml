@@ -1,0 +1,24 @@
+seed: 42
+test_size: 0.20
+validation_size: 0.20
+experiment_name: wine-quality
+data_dir: data
+model_dir: models
+report_dir: reports
+minimum_test_r2: 0.25
+models:
+  - name: ridge_1
+    algorithm: ridge
+    params: {alpha: 1.0}
+  - name: ridge_20
+    algorithm: ridge
+    params: {alpha: 20.0}
+  - name: forest_leaf1
+    algorithm: random_forest
+    params: {n_estimators: 200, max_depth: 20, min_samples_leaf: 1, n_jobs: -1}
+  - name: forest_leaf3
+    algorithm: random_forest
+    params: {n_estimators: 200, max_depth: 16, min_samples_leaf: 3, n_jobs: -1}
+  - name: extra_trees
+    algorithm: extra_trees
+    params: {n_estimators: 250, max_depth: 24, min_samples_leaf: 1, n_jobs: -1}
